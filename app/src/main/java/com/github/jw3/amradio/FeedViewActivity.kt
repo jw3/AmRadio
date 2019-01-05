@@ -1,11 +1,8 @@
 package com.github.jw3.amradio
 
 import android.app.Activity
-import android.media.AudioManager
-import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
-import android.os.Looper.prepare
 import com.burgstaller.okhttp.digest.Credentials
 import com.burgstaller.okhttp.digest.DigestAuthenticator
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -25,10 +22,6 @@ class FeedViewActivity : Activity() {
         setContentView(R.layout.activity_feed_view)
 
 
-        val context = this
-
-        val p = ExoPlayerFactory.newSimpleInstance(context)
-
         val credentials = Credentials("xxx", "xxx")
         val digestAuthenticator = DigestAuthenticator(credentials)
 
@@ -36,15 +29,17 @@ class FeedViewActivity : Activity() {
         builder.authenticator(digestAuthenticator)
 
         val f = OkHttpDataSourceFactory(builder.build(), null)
-
         val s = ExtractorMediaSource.Factory(f).createMediaSource(
                 Uri.parse("http://192.168.1.123/cgi-bin/audio.cgi?action=getAudio&httptype=singlepart&channel=1")
         )
 
+        val p = ExoPlayerFactory.newSimpleInstance(this)
         p.prepare(s)
-        p.playWhenReady = true
 
-        button.setOnClickListener { _ ->
+        switch1.setOnCheckedChangeListener { _, play ->
+            p.playWhenReady = play
+            if (play) p.retry()
+            else p.stop()
 
         }
     }
