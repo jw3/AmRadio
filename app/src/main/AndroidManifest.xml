@@ -22,7 +22,6 @@
         </activity>
 
         <service
-            android:name=".AmFeedService"
             android:exported="false" />
 
         <activity android:name=".SettingsActivity"></activity>
