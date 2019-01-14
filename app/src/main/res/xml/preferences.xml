@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="admin"
+        android:inputType="text"
+        android:key="username_preference"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Username" />
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:inputType="textPassword"
+        android:key="password_preference"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Password" />
+    <EditTextPreference
+        android:defaultValue="192.168.1.1"
+        android:inputType="textUri"
+        android:key="hostname_preference_1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Cam 1 Hostname" />
+    <EditTextPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="192.168.1.1"
+        android:inputType="textUri"
+        android:key="hostname_preference_2"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Cam 2 Hostname" />
+    <EditTextPreference
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:defaultValue="192.168.1.1"
+        android:inputType="textUri"
+        android:key="hostname_preference_3"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Cam 3 Hostname" />
+
+</PreferenceScreen>
